@@ -1,13 +1,13 @@
 # -*- coding: UTF-8 -*-
 # Copyright (c) 2014 Daniele Ciriello. All Rights Reserved.
 
-# This file is part of diamonddashsolver.
+# This file is part of Pydiamond.
 
-# diamonddashsolver is free software; you can redistribute it and/or modify
+# Pydiamond is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the Free
 # Software Foundation version 2 and no later version.
 
-# diamonddashsolver is distributed in the hope that it will be useful, but
+# Pydiamond is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 # FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License version 2 for more details.
@@ -19,7 +19,6 @@
 from bot import Bot
 from pytomator.pytomator import *
 
-SAMPLE_LENGTH = 13
 GRID_WIDTH = 10
 GRID_HEIGHT = 9
 SENSITIVITY = 0.5
@@ -36,24 +35,19 @@ def main():
     # https://www.facebook.com/appcenter/diamonddash?
     # fb_source=appcenter_getting_started&fbsid=114
     # with firefox at default zoom (cmd+0 -> default zoom)
-    play_button = match('play.png')
-    #bottom_right = [play_button[0] - 61, play_button[1] + 102]
-    #top_left = [play_button[0] - 463, play_button[1] - 258]
+    play_button = match('imgs/play.png')
     if play_button:
         #bottom_right = [play_button[0] - 61, play_button[1] + 102]
         #top_left = [play_button[0] - 463, play_button[1] - 258]
         mouseclick(play_button[0], play_button[1])
         mouseclick(play_button[0], play_button[1])
         time.sleep(3)
-        play_button = match('play2.png')
+        play_button = match('imgs/play2.png')
         if play_button:
             mouseclick(play_button[0], play_button[1])
 
-
-    #bottom_right = [play_button[0] - 61, play_button[1] + 102]
-    bottom_right = [486, 686] #[504, 595]
-    #top_left = [play_button[0] - 463, play_button[1] - 258]
-    top_left = [86, 326]#[100, 234]
+    bottom_right = [486, 686]
+    top_left = [86, 326]
     # the game has started
     time.sleep(4)
     print 'start'
@@ -64,13 +58,11 @@ def main():
     b = Bot(
         #[top_left[0] - diamond_width / 2, top_left[1] - diamond_height / 2],
         [top_left[0], top_left[1]],
-        GRID_WIDTH, GRID_HEIGHT, diamond_width, diamond_height, SAMPLE_LENGTH,
+        GRID_WIDTH, GRID_HEIGHT, diamond_width, diamond_height,
         SENSITIVITY, COUNTER_THRESHOLD)
     while b.running:
         b.next()
 
 
-    # detect puzzle and press play button
-    # take a screen shot and make grid
 if __name__ == '__main__':
     main()
