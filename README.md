@@ -10,7 +10,7 @@ Install [Pytomator](https://github.com/danieleciriello/Pytomator).
 
 ## Usage
 
-Open the game in Firefox and press cmd + 0 (it sets default zoom), let the window visible and its top left and bottom right coordinates in main.py, run it and break the game!
+Open the [game](https://apps.facebook.com/diamonddash) in Firefox and press cmd + 0 (it sets default zoom), let the window visible and its top left and bottom right coordinates in main.py, run it and break the game!
 
 ## License
 
